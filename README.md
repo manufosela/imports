@@ -19,3 +19,9 @@ Tanto la importación estática como la importación dinámica () son útiles.
 Cada uno tiene sus casos de uso, muy distintos. 
 Los import estáticos para cargar las dependencias que se renderizan inicialmente, especialmente para el contenido de la mitad superior de la página. 
 En otros casos, se puede cargar dependencias a demanda con importación dinámica conforme vaya haciendo scroll, por ejemplo.
+
+# [import.meta](https://manufosela.github.io/imports/import.meta)
+
+Para acceder a la meta-información del módulo.
+Devuelve un objeto con la propiedad url que contien el path del módulo.
+
