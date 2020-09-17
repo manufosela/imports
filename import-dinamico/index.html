@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>import Estático</title>
+</head>
+<body>
+  <h1>IMPORT ESTATICO</h1>
+  <section>Abre la consola...</section>
+  
+  <!-- OPCION 2 con then -->
+  <script type="module">
+    const moduleSpecifier = './utils.mjs';
+    import(moduleSpecifier)
+      .then((module) => {
+        module.default();
+        module.hazAlgo();
+      });
+  </script>
+
+  <!-- OPCION 2 con Async/Await-->
+  <!--
+  <script type="module">
+    (async () => {
+      const moduleSpecifier = './utils.mjs';
+      const module = await import(moduleSpecifier)
+      module.default();
+      module.hazAlgo();
+    })();
+  </script>
+  -->
+  
+
+</body>
+</html>

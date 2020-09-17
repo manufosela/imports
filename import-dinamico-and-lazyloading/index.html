@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mis movidas</title>
+    <style>
+      header { background-color: orangered; position: fixed; top: 0; left: 0; right: 0; height: 80px; display: flex; align-items: center; }
+      header * { display: inline; }
+      header a { margin: 20px; color: white; text-decoration: none; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="books.html" data-entry-module="books">Books</a>
+        <a href="movies.html" data-entry-module="movies">Movies</a>
+        <a href="video-games.html" data-entry-module="video-games">Video Games</a>
+      </nav>
+    </header>
+
+    <main>Este es el placeholder donde iré cargando el contenido a demanda...</main>
+
+    <script>
+      const main = document.querySelector('main');
+      const links = document.querySelectorAll('nav > a');
+      for (const link of links) {
+        link.addEventListener('click', async (event) => {
+          event.preventDefault();
+          try {
+            const module = await import(`./${link.dataset.entryModule}.mjs`);
+            // The module exports a function named `loadPageInto`.
+            module.loadPageInto(main);
+          } catch (error) {
+            main.textContent = error.message;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
