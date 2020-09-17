@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>import.meta</title>
+  </head>
+  <body>
+    <script type="module">
+      console.log(import.meta);
+
+      (async () => {
+        const response = await fetch(new URL("./hamster.jpg", import.meta.url));
+        const blob = await response.blob();
+
+        const size = 300;
+
+        const image = new Image();
+        image.src = URL.createObjectURL(blob);
+        image.width = size;
+
+        document.body.appendChild(image);
+      })();
+    </script>
+  </body>
+</html>
